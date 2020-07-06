@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "d823f055-e4ee-4387-9882-faa429c9a459",
+		"name": "Api Test Springboot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add_book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76fdc82e-dece-442f-8039-ff002b378672",
+						"exec": [
+							"pm.test(\"Success in adding records into database with Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n  \"title\":\"Two Brothers\",\n  \"author\":\"Tiger\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Demo}}/api/book",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_book Invalid_Endpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a529f5d6-845a-4a01-9a61-e6a88421b6ad",
+						"exec": [
+							"pm.test(\"Invalid Endpoint URL with Status code 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n  \"title\":\"Two Brothers\",\n  \"author\":\"Tiger\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Demo}}/api",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Single_Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a0052e2-c30b-42bb-ab80-29321b48c5d5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Demo}}/api/book/5",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api",
+						"book",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_Edit_Book_details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "378a66b4-b80b-4b5f-8d06-2d2cb8b9593d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\":\"Pirates of the Caribean\",\n  \"author\":\"Johnny\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Demo}}/api/book/10",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api",
+						"book",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Book_Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "72de160a-1e28-4e26-8df3-a63662f6e32d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Demo}}/api/book",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_BookDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2173e4a0-e83d-459a-8c97-f4cb50ef615d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Demo}}/api/book/10",
+					"host": [
+						"{{Demo}}"
+					],
+					"path": [
+						"api",
+						"book",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
